@@ -19,7 +19,7 @@ const checkAge_HW_4 = function (age) {
         return "You don't have access cause your age is " + age + " It’s less then "
     } else if (age >= age_2 && age < age_3) {
         return "Welcome !"
-    } else if (age > age_3) {
+    } else if (age >= age_3) {
         return "Keep calm and look Culture channel"
     } else {
         return "Technical work"
