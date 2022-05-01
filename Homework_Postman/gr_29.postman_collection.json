@@ -1,0 +1,130 @@
+{
+	"info": {
+		"_postman_id": "dfc1bf32-bcb6-438e-a53a-c5c52e5c6bd2",
+		"name": "gr_29",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "less1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var person = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"let person1 = {\r",
+							"    \"age\": \"30\",\r",
+							"    \"family\": {\r",
+							"        \"children\": [[\"Alex\",24],[\"Kate\",12]],\r",
+							"        \"u_salary_1_5_year\": 4000\r",
+							"    },\r",
+							"    \"name\": \"Alex\",\r",
+							"    \"salary\": 1000\r",
+							"}\r",
+							"\r",
+							"let item_1 = \"Alex\"\r",
+							"\r",
+							"pm.test(\"Item_1 Test\", function () {\r",
+							"\r",
+							"    pm.expect(item_1).to.deep.equal(\"Alex\")\r",
+							"    // pm.expect(tt2.salary).to.eql(1000);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Item_2 Person\", function () {\r",
+							"\r",
+							"    pm.expect(+person.age).to.deep.equal(30)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Item_3 Person\", function () {\r",
+							"\r",
+							"    pm.expect(person.family.children[0][1]).to.deep.equal(24)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Item_4 Person\", function () {\r",
+							"\r",
+							"    pm.expect(person).to.have.property(\"name\")\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Item_5 Person\", function () {\r",
+							"\r",
+							"    pm.expect(person).to.deep.include({\"salary\": 1000})\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Item_6 Person\", function () {\r",
+							"\r",
+							"    pm.expect(person.family.children[1]).to.deep.include(12)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Item_7 Person\", function () {\r",
+							"\r",
+							"    pm.expect((person.name)[1]).to.be.a(\"String\")\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Item_8 Person\", function () {\r",
+							"\r",
+							"    pm.expect(person.family.children[1]).to.be.an(\"Array\").that.include(12)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Item_9 Person\", function () {\r",
+							"\r",
+							"    pm.expect(person.family.children[0]).to.eql([\"Alex\",24])\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "age",
+							"value": "30",
+							"type": "text"
+						},
+						{
+							"key": "salary",
+							"value": "1000",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "Alex",
+							"type": "text"
+						},
+						{
+							"key": "auth_token",
+							"value": "/s34lfgbj/Vadim/jjd909/12242kjkWpqc322823r23r3r457271evny",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://162.55.220.72:5005/get_test_user",
+					"protocol": "http",
+					"host": [
+						"162",
+						"55",
+						"220",
+						"72"
+					],
+					"port": "5005",
+					"path": [
+						"get_test_user"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
